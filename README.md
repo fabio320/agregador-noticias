@@ -16,6 +16,9 @@ Usuários interessados em acompanhar notícias online e interagir com conteúdos
 erDiagram
     USUARIOS ||--o{ COMENTARIOS : faz
     USUARIOS ||--o{ REACOES : realiza
+    USUARIOS ||--|| PONTOS : possui
+    PONTOS }o--|| NIVEIS : pertence
+
     NOTICIAS ||--o{ COMENTARIOS : possui
     NOTICIAS ||--o{ REACOES : recebe
 
@@ -47,4 +50,16 @@ erDiagram
         string tipo
         int id_usuario FK
         int id_noticia FK
+    }
+
+    PONTOS {
+        int id_usuario PK
+        int pontuacao
+        int id_nivel FK
+    }
+
+    NIVEIS {
+        int id_nivel PK
+        string nome
+        int pontuacao_minima
     }
